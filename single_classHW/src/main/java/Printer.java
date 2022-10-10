@@ -12,9 +12,17 @@ public class Printer {
         return this.paper;
     }
 
-    public int printPaper(this.paper, copiesNeeded){
-        if(copiesNeeded > this.paper) {
-            return "Not enough paper"
-        } else { this.paper-= copiesNeeded}
+    public void printPaper(int pages, int copiesNeeded) {
+        int paperValue = pages * copiesNeeded;
+        if (this.paper > paperValue) {
+            this.paper -= paperValue;
+            this.toner -= paperValue;
+        } else {
+            System.out.println("Need more paper");
+        }
+    };
+
+    public int measureToner(){
+        return this.toner;
     }
 }
